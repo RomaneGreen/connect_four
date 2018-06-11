@@ -7,15 +7,15 @@ it 'makes sure Connectfour is a class' do
 end
 end
 
-describe Connectfour do
+describe '.board' do
 it 'generates board with 42 empty slots' do
  g =  Connectfour.new
  g.instance_variable_get(:@board)
-  expect(g.instance_variable_get(:@board)).to eq  Array.new(42," ")
+  expect(g.instance_variable_get(:@board)).to eq  [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42]
 end
 end
 
-describe Connectfour do
+describe '.player' do
 it 'Establishes player one and player two' do
  g =  Connectfour.new
  g.instance_variable_get(:@player)
@@ -24,7 +24,7 @@ end
 end
 
 
-describe Connectfour do
+describe '#take_turn' do
 it 'Tracks turns' do
  g =  Connectfour.new
  g.instance_variable_get(:@turn)
@@ -44,8 +44,6 @@ end
 
 describe '#draw' do
 it 'returns false if not a draw' do
- g =  Connectfour.new
- g.turn = 22
  g =  Connectfour.new.draw
   expect(g).to eq false
 end
@@ -53,9 +51,13 @@ end
 
 describe '#win' do
 it 'lets a player know if he or she has won' do
- g =  Connectfour.new
- g.turn = 22
- g =  Connectfour.new.draw
-  expect(g).to eq false
+
+g = Connectfour.new
+g.board[0] = '⏺'
+g.board[1] = '⏺'
+g.board[2] = '⏺'
+g.board[3] = '○'
+g.win?
+  expect(g.instance_variable_get(:@won)).to eq false
 end
 end
