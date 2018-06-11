@@ -1,4 +1,4 @@
-require_relative '../connect_four.rb'
+require_relative '../lib/connect_four.rb'
 
- g = Connect_four.new
+ g = Connectfour.new
  g.play
