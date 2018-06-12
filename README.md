@@ -29,7 +29,7 @@ How the game is played (https://en.wikipedia.org/wiki/Connect_Four).
                          36 | 37 | 38 | 39 | 40 | 41 | 42
                          
 
-                           Player ⏺ Enter a square (1-42)
+                           Player ⏺ Enter a square (1-7)
 
 ```
 
