@@ -7,6 +7,13 @@ def initialize
 @player = '_'
 @turn = 0
 @won = false
+@one = 35
+@two = 36
+@three = 37
+@four = 38
+@five = 39
+@six = 40
+@seven = 41
 end
 
 
@@ -38,23 +45,62 @@ def take_turn
   game_state
 
   turn.even? ?  player = '⏺' : player = '○'
-  puts "\t \t Player #{player} Enter a square (1-42)"
-  input = gets.chomp.to_i - 1
+  puts "\t \t Player #{player} Enter a square (1-7)"
+  input = gets.chomp.to_i
 
-  if input > 43 || input == -1
-  puts "\t \t Invaid,please enter a number between 1 and 42"
+if input > 7 || input == -1
+  puts "\t \t Invaid,please enter a number between 1 and 7"
 
 elsif board[input] == '⏺' || board[input] == '○'
   puts "\t \t Square has already been taken!"
 
-  else
-  board[input] = "#{player}"
+else
+  case input
+  when 7
+  board[@seven] = "#{player}"
+  @seven -= 7
   @turn += 1
   win?
   draw
+  when 6
+  board[@six] = "#{player}"
+  @six -= 7
+  @turn += 1
+  win?
+  draw
+  when 5
+  board[@five] = "#{player}"
+  @five -= 7
+  @turn += 1
+  win?
+  draw
+  when 4
+  board[@four] = "#{player}"
+  @four -= 7
+  @turn += 1
+  win?
+  draw
+when 3
+board[@three] = "#{player}"
+@three -= 7
+@turn += 1
+win?
+draw
+when 2
+board[@two] = "#{player}"
+@two -= 7
+@turn += 1
+win?
+draw
+when 1
+board[@one] = "#{player}"
+@one -= 7
+@turn += 1
+win?
+draw
   end
+end
   end
-
 end
 
 def draw
